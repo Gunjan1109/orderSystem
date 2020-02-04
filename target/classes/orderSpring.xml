@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="customer1" class="ncu.gunjan.app.orderSystem.Customer">
+	<property name="id" value="100"/>
+	<property name="name" value="TOM"/>
+	<property name="gender" value="M"/>
+	<property name="balance" value="3200"/>
+	<property name="address">
+	<set>
+	<ref bean="address1"/>
+	<ref bean="address2"/>
+	<ref bean="address3"/>
+	</set>
+	</property>
+	<property name="order">
+	<list>
+	<ref bean="order2"/>
+	</list>
+	</property>
+	</bean>
+	
+	<bean id="customer2" class="ncu.gunjan.app.orderSystem.Customer">
+	<property name="id" value="101"/>
+	<property name="name" value="DAVID"/>
+	<property name="gender" value="M"/>
+	<property name="balance" value="200"/>
+	<property name="address">
+	<set>
+	<ref bean="address4"/>
+	<ref bean="address5"/>
+	</set>
+	</property>
+	<property name="order">
+	<list>
+	<ref bean="order1"/>
+	</list>
+	</property>
+	</bean>
+	
+	<bean id="customer3" class="ncu.gunjan.app.orderSystem.Customer">
+	<property name="id" value="102"/>
+	<property name="name" value="DAVID"/>
+	<property name="gender" value="F"/>
+	<property name="balance" value="200"/>
+	<property name="address">
+	<set>
+	<ref bean="address4"/>
+	<ref bean="address5"/>
+	</set>
+	</property>
+	<property name="order">
+	<list>
+	<ref bean="order1"/>
+	</list>
+	</property>
+	</bean>
+	
+	<bean id="address1" class="ncu.gunjan.app.orderSystem.Address">
+	<property name="houseNo" value="7985"/>
+	<property name="state" value="Haryana"/>
+	<property name="city" value="Faridaabd"/>
+	<property name="pincode" value="121004"/>
+	<property name="type" value="RESIDENTIAL"/>
+	</bean>
+	
+	<bean id="address2" class="ncu.gunjan.app.orderSystem.Address">
+	<property name="houseNo" value="S-356"/>
+	<property name="state" value="New Delhi"/>
+	<property name="city" value="Palam Vihar"/>
+	<property name="pincode" value="165287"/>
+	<property name="type" value="RESIDENTIAL"/>
+	</bean>
+	
+	<bean id="address3" class="ncu.gunjan.app.orderSystem.Address">
+	<property name="houseNo" value="Samsung-45"/>
+	<property name="state" value="West Bengal"/>
+	<property name="city" value="Kolkata"/>
+	<property name="pincode" value="632110"/>
+	<property name="type" value="OFFICE"/>
+	</bean>
+	
+	<bean id="address4" class="ncu.gunjan.app.orderSystem.Address">
+	<property name="houseNo" value="36789"/>
+	<property name="state" value="Tamil Nadu"/>
+	<property name="city" value="Chennai"/>
+	<property name="pincode" value="440987"/>
+	<property name="type" value="RESIDENTIAL"/>
+	</bean>
+	
+	<bean id="address5" class="ncu.gunjan.app.orderSystem.Address">
+	<property name="houseNo" value="Apple-100"/>
+	<property name="state" value="New Delhi"/>
+	<property name="city" value="Firozabad"/>
+	<property name="pincode" value="110325"/>
+	<property name="type" value="OFFICE"/>
+	</bean>
+	
+	<bean id="orderprocess" class="ncu.gunjan.app.orderSystem.OrderProcess">
+	<property name="customer">
+	<set>
+	<ref bean="customer1"/>
+	<ref bean="customer2"/>
+	<ref bean="customer3"/>
+	</set>
+	</property>
+	<property name="product2" ref="product0"></property>
+	<property name="priceCompare" ref="priceCompare"/>
+	</bean>
+	
+	<bean id="order1" class="ncu.gunjan.app.orderSystem.Order">
+	<property name="id" value="1"/>
+	<property name="date" value="2019-05-12"/>
+	<property name="amount" value="168500"/>
+	<property name="product">
+	<list>
+	<ref bean="product1"/>
+	<ref bean="product2"/>
+	<ref bean="product3"/>
+	<ref bean="product4"/>
+	</list>
+	</property>
+	</bean>
+	
+	<bean id="order2" class="ncu.gunjan.app.orderSystem.Order">
+	<property name="id" value="2"/>
+	<property name="date" value="2020-01-30"/>
+	<property name="amount" value="62500"/>
+	<property name="product">
+	<list>
+	<ref bean="product2"/>
+	<ref bean="product3"/>
+	</list>
+	</property>
+	</bean>
+	
+	<bean id="product0" class="ncu.gunjan.app.orderSystem.Product">
+	<property name="name" value="null"/>
+	<property name="quantity" value="0"/>
+	<property name="amount" value="0"/>
+	<property name="rating" value="0"/>
+	</bean>
+	
+	<bean id="product1" class="ncu.gunjan.app.orderSystem.Product">
+	<property name="name" value="American Tourister A12 Bag"/>
+	<property name="quantity" value="2"/>
+	<property name="amount" value="6000"/>
+	<property name="rating" value="6"/>
+	</bean>
+	
+	<bean id="product2" class="ncu.gunjan.app.orderSystem.Product">
+	<property name="name" value="Hitachi 5 star AC"/>
+	<property name="quantity" value="1"/>
+	<property name="amount" value="60000"/>
+	<property name="rating" value="8"/>
+	</bean>
+	
+	<bean id="product3" class="ncu.gunjan.app.orderSystem.Product">
+	<property name="name" value="Fogg Ultimate Black"/>
+	<property name="quantity" value="5"/>
+	<property name="amount" value="2500"/>
+	<property name="rating" value="7"/>
+	</bean>
+	
+	<bean id="product4" class="ncu.gunjan.app.orderSystem.Product">
+	<property name="name" value="Lenovo Ideapad 330"/>
+	<property name="quantity" value="2"/>
+	<property name="amount" value="100000"/>
+	<property name="rating" value="9"/>
+	</bean>
+	
+	<bean id="priceCompare" class="ncu.gunjan.app.orderSystem.PriceCompare"></bean>
+</beans>
